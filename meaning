@@ -1,0 +1,62 @@
+parseFloat:
+The parseFloat function in JavaScript is used to convert a string or other data type into a floating-point number (a number that can have decimals).
+
+Syntax:
+javascript
+Copy code
+parseFloat(value)
+How it Works:
+It takes a value (typically a string) as an input.
+If the value starts with a number, it converts it to a floating-point number and ignores the rest.
+If the value cannot be converted into a number, it returns NaN (Not-a-Number).
+Examples:
+javascript
+Copy code
+parseFloat("3.14");       // 3.14 (converted to a number)
+parseFloat("42");         // 42 (converted to a number)
+parseFloat("123abc");     // 123 (stops parsing at the first non-numeric character)
+parseFloat("abc123");     // NaN (no numeric characters at the start)
+parseFloat(" ");          // NaN (empty string or whitespace only)
+parseFloat(null);         // NaN
+parseFloat(undefined);    // NaN
+isNaN:
+The isNaN function checks whether a value is not a number. It is used to determine if a value is invalid for numeric operations.
+
+Syntax:
+javascript
+Copy code
+isNaN(value)
+How it Works:
+It takes a value as input.
+Returns true if the value cannot be converted into a valid number.
+Returns false if the value is a valid number or can be converted into one.
+Examples:
+javascript
+Copy code
+isNaN(123);              // false (123 is a number)
+isNaN("123");            // false ("123" can be converted to a number)
+isNaN("abc");            // true ("abc" is not a number)
+isNaN(undefined);        // true (undefined is not a number)
+isNaN(NaN);              // true (NaN is "Not-a-Number")
+isNaN(" ");              // false (empty string or whitespace is treated as 0)
+Common Uses:
+To validate user input in forms to ensure it's a number.
+To handle unexpected data that might not be numeric.
+parseFloat and isNaN Together:
+They are often used together to:
+
+Convert user input into a number.
+Check if the conversion is successful.
+Example:
+javascript
+Copy code
+var input = "45abc";        // User input
+var number = parseFloat(input); // Convert to number
+if (isNaN(number)) {
+    console.log("Invalid input. Please enter a valid number.");
+} else {
+    console.log("Valid number:", number); // Output: 45
+}
+Summary:
+parseFloat: Converts data to a floating-point number.
+isNaN: Checks if a value is not a number.
